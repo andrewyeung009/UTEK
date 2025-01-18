@@ -1,3 +1,4 @@
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -7,6 +8,10 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
+
+import javax.imageio.ImageIO;
+import javax.swing.*;
+import java.awt.*;
 
 class LocationData {
     private String fullName;
@@ -33,6 +38,7 @@ class LocationData {
 }
 
 public class UTEK {
+
     public static void main(String[] args) throws IOException, ParseException {
 
         JSONParser jsonParser = new JSONParser();
@@ -53,6 +59,43 @@ public class UTEK {
 
         for (LocationData location : locations) {
             System.out.println(location);
+        }
+
+        final int WIDTH = 1650;
+        final int HEIGHT = 1080;
+
+        JFrame mapWindow = new JFrame("Alert360 Map");
+        mapWindow.setSize(WIDTH, HEIGHT);
+        mapWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        BackgroundPanel backgroundPanel = new BackgroundPanel();
+
+        mapWindow.add(backgroundPanel);
+
+
+
+        mapWindow.setVisible(true);
+    }
+}
+class BackgroundPanel extends JPanel {
+    private Image backgroundImage;
+
+    public BackgroundPanel() {
+        try {
+            // Load the image (replace the path with your image file's path)
+            backgroundImage = ImageIO.read(new File("UTEK/japan_map.png"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+
+        // Draw the background image
+        if (backgroundImage != null) {
+            // Draw the image to fill the entire panel
+            g.drawImage(backgroundImage, 0, 0, getWidth(), getHeight(), this);
         }
     }
 }
