@@ -1,3 +1,14 @@
-{
-  "name": "ANDREW"
-}
+[
+  {
+    "full_name": "a",
+    "latitude": "12",
+    "longitude": "123",
+    "timestamp": "2025-01-18T18:56:07.778Z"
+  },
+  {
+    "full_name": "b",
+    "latitude": "-2",
+    "longitude": "0",
+    "timestamp": "2025-01-18T18:56:17.235Z"
+  }
+]
