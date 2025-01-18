@@ -1,17 +1,19 @@
+import java.awt.Graphics;
+import java.awt.Image;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.imageio.ImageIO;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
-
-import javax.imageio.ImageIO;
-import javax.swing.*;
-import java.awt.*;
 
 class LocationData {
     private String fullName;
