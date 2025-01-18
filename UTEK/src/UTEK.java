@@ -70,19 +70,17 @@ public class UTEK {
         BackgroundPanel backgroundPanel = new BackgroundPanel();
 
         mapWindow.add(backgroundPanel);
-
-
-
         mapWindow.setVisible(true);
     }
 }
 class BackgroundPanel extends JPanel {
     private Image backgroundImage;
+    private Image title;
 
     public BackgroundPanel() {
         try {
-            // Load the image (replace the path with your image file's path)
             backgroundImage = ImageIO.read(new File("UTEK/japan_map.png"));
+            title = ImageIO.read(new File("UTEK/Alert360.png"));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -92,10 +90,9 @@ class BackgroundPanel extends JPanel {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
 
-        // Draw the background image
         if (backgroundImage != null) {
-            // Draw the image to fill the entire panel
-            g.drawImage(backgroundImage, 0, 0, getWidth(), getHeight(), this);
+            g.drawImage(title, 500, -60,500 ,250, this);
+            g.drawImage(backgroundImage, 125, 125, 1300,600, this);
         }
     }
 }
